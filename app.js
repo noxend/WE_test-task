@@ -10,9 +10,9 @@ app.use(require('morgan')('dev'));
 app.use(require('body-parser').urlencoded({ extended: false }));
 app.use(require('body-parser').json());
 
-db.sync()
+db.authenticate()
   .then(() => {
-    console.log('Database created...');
+    db.sync().then(() => console.log('Tables created...'));
   })
   .catch(err => console.log(err));
 
