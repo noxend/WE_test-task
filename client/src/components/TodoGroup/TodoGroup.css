@@ -1,0 +1,238 @@
+.todo-group {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.25rem;
+  background-color: white;
+  animation-name: todo-group-in;
+  animation-duration: .2s;
+  box-shadow: 0 0.46875rem 2.1875rem rgba(8, 10, 37, 0.03),
+    0 0.9375rem 1.40625rem rgba(8, 10, 37, 0.03),
+    0 0.25rem 0.53125rem rgba(8, 10, 37, 0.05),
+    0 0.125rem 0.1875rem rgba(8, 10, 37, 0.03);
+}
+
+.h-tg {
+  opacity: 0;
+  animation-name: todo-group-out;
+}
+
+@keyframes todo-group-in {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes todo-group-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.todo-group__header {
+  background-color: #d92550;
+  color: white;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.25rem 0.25rem 0 0;
+  overflow: hidden;
+}
+
+.todo-group__title {
+  font-weight: 500;
+}
+
+.todo-group__menu button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border-radius: 50%;
+  border: none;
+  height: 30px;
+  width: 30px;
+  transition: 0.2s;
+  color: white;
+  background-color: transparent;
+}
+
+.todo-group__menu button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.todo-group__menu button:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.todo-group__todo-item {
+  padding: 0 16px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.todo-group__todo-item input[type='checkbox'] {
+  margin-right: 6px;
+  flex-grow: 0;
+}
+
+.todo-group__todo-item input[type='text'] {
+  display: none;
+  flex-grow: 1;
+}
+
+.edit span {
+  display: none;
+}
+
+.edit input[type='text'] {
+  display: block;
+}
+
+.todo-group__todo-item:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.todo-group__todo-item span {
+  font-size: 0.875rem;
+  line-height: normal;
+  flex-grow: 1;
+}
+
+.todo-group__bottom {
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 0 0 0.25rem 0.25rem;
+  overflow: hidden;
+}
+
+.todo-group__bottom form {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.todo-group__bottom input {
+  padding: 10px 16px;
+  color: #343a40;
+  flex-grow: 1;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+
+.todo-group__bottom input::placeholder {
+  font-size: 0.875rem;
+  font-style: italic;
+  /* font-weight: 500; */
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.todo-group__bottom input:focus {
+  border-bottom: 3px solid #d92550;
+}
+
+.todo-group__bottom button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 16px;
+  outline: none;
+  color: white;
+  background-color: #d92550;
+  border-radius: 50%;
+  border: none;
+  height: 30px;
+  width: 30px;
+  transition: 0.2s;
+}
+
+.todo-group__item-menu button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border-radius: 50%;
+  border: none;
+  height: 30px;
+  width: 30px;
+  transition: 0.2s;
+  background-color: transparent;
+}
+
+.todo-group__item-menu button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.todo-group__item-menu button:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.todo-group__item-menu {
+  position: relative;
+  display: flex;
+  flex-grow: 0;
+}
+
+.todo-group__bottom button:active {
+  background-color: #b82548;
+  transform: scale(1.1);
+}
+
+.todo-group__menu-body {
+  position: absolute;
+  top: -4px;
+  left: 40px;
+  z-index: 5;
+  border-radius: 0.25rem;
+  background-color: #343a40;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+.todo-group__menu-body::before {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: -7px;
+  z-index: -2;
+  transform: rotateZ(45deg);
+  height: 15px;
+  width: 15px;
+  background-color: #343a40;
+}
+
+.todo-group__menu-body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.todo-group__menu-body li {
+  display: flex;
+  justify-content: center;
+  padding: 10px 12px;
+  transition: 0.2s;
+}
+
+.todo-group__menu-body li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.todo-group__menu-body li:active {
+  background-color: rgba(255, 255, 255, 0.15);
+}

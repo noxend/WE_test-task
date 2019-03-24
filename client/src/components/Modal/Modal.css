@@ -1,0 +1,136 @@
+.modal-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation-name: modal-bg-in;
+  animation-duration: 0.2s;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  z-index: 10;
+}
+
+.m-c-hide {
+  animation-name: modal-bg-out;
+  opacity: 0;
+}
+
+@keyframes modal-bg-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-bg-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.modal-window__content {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  animation-name: modal-cont-in;
+  animation-duration: 0.2s;
+  box-shadow: 0 0.46875rem 2.1875rem rgba(8, 10, 37, 0.03),
+    0 0.9375rem 1.40625rem rgba(8, 10, 37, 0.03),
+    0 0.25rem 0.53125rem rgba(8, 10, 37, 0.05),
+    0 0.125rem 0.1875rem rgba(8, 10, 37, 0.03);
+}
+
+.modal-window .m-c-hide {
+  animation-name: modal-cont-out;
+  opacity: 0;
+}
+
+@keyframes modal-cont-in {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modal-cont-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.modal-window__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.modal-window__title {
+  font-weight: 500;
+}
+
+.modal-window__body form {
+  display: flex;
+}
+
+.modal-window__body input {
+  padding: 10px 16px;
+  color: #343a40;
+  flex-grow: 1;
+  outline: none;
+  border: none;
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+
+.modal-window__body button {
+  flex-grow: 0;
+  padding: 0 16px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #d92550;
+  transition: 0.2s;
+}
+
+.modal-window__body button:hover {
+  background-color: #b82548;
+}
+
+.modal-window__body input::placeholder {
+  font-size: 0.875rem;
+  font-style: italic;
+  /* font-weight: 500; */
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.modal-window__body input:focus {
+  border-bottom: 3px solid #d92550;
+}

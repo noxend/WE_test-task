@@ -1,0 +1,32 @@
+
+.add-new-gropu {
+  position: fixed;
+  right: 5rem;
+  bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-new-gropu button {
+  font-size: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 82px;
+  width: 82px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #d92550;
+  transition: 0.2s;
+}
+
+.add-new-gropu button:hover {
+  background-color: #b82548;
+}
+
+.add-new-gropu button:active {
+  transform: scale(1.1);
+}
