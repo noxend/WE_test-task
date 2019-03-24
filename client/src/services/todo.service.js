@@ -36,6 +36,16 @@ class TodoService {
     return res;
   };
 
+  editTodoItem = async (id, title) => {
+    const res = await axios.put(`/api/todo-items/${id}`, { title });
+    return res;
+  };
+
+  doneTodoItem = async (id, done) => {
+    const res = await axios.put(`/api/todo-items/done/${id}`, { done });
+    return res;
+  };
+
 }
 
 export { TodoService };

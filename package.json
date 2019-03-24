@@ -10,14 +10,19 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index"
+    "server": "nodemon index.js",
+    "server-i": "npm i",
+    "client": "npm run start --prefix client",
+    "client-i": "npm i --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev-i": "concurrently \"npm run server-i\" \"npm run client-i\""
   },
   "author": "Oleksandr Marushchak",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.5",

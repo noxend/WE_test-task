@@ -1,5 +1,7 @@
 "# WE_test-task" 
 
-Start project:
+Install dependencies
+### `npm run dev-i`
 
+Start project:
 ### `npm run dev`

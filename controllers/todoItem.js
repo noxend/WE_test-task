@@ -3,38 +3,47 @@ const router = express.Router();
 
 const TodoItem = require('../models/TodoItem');
 
-router.post('/', async (req, res) => {
-
+router.post('/', (req, res) => {
   const { title, todoGroupId } = req.body;
 
-  await TodoItem.create({
+  TodoItem.create({
     title,
     todoGroupId
-  });
-
-  res.sendStatus(200);
+  })
+    .then(result => res.send(result))
+    .catch(err => res.send(err));
 });
 
-
-router.get('/:id', async (req, res) => {
-
-  const result = await TodoItem.findAll({
+router.get('/:id', (req, res) => {
+  TodoItem.findAll({
     where: {
       todoGroupId: req.params.id
     }
-  });
-    
-  res.json(result);
+  })
+    .then(result => res.send(result))
+    .catch(err => res.send(err));
 });
 
-
-router.delete('/:id', async (req, res) => {
-  await TodoItem.destroy({
+router.delete('/:id', (req, res) => {
+  TodoItem.destroy({
     where: {
       id: req.params.id
     }
-  });
-  res.send('ok');
+  })
+    .then(result => res.send(result))
+    .catch(err => res.send(err));
+});
+
+router.put('/:id', (req, res) => {
+  TodoItem.update({ title: req.body.title }, { where: { id: req.params.id } })
+    .then(result => res.send(result))
+    .catch(err => res.send(err));
+});
+
+router.put('/done/:id', (req, res) => {
+  TodoItem.update({ done: req.body.done }, { where: { id: req.params.id } })
+    .then(result => res.send(result))
+    .catch(err => res.send(err));
 });
 
 module.exports = router;
