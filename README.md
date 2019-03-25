@@ -2,13 +2,16 @@
 
 ![img](https://i.ibb.co/6YC2Gyp/image-2019-03-24-09-12-53.png)
 
-Install server dependencies
-### `npm i`
+1. Create a "todo" database in MySQL.
 
-Install client dependencies
+2. Connect to the database in the file `./db/connection.js`.
 
-### 1. `cd ./client`
-### 2. `npm i`
+3. Install server dependencies
+    `npm i`
 
-Start project:
-### `npm run dev`
+4. Install client dependencies
+    `cd ./client`
+    `npm i`
+
+5. Start project:
+    `npm run dev`
